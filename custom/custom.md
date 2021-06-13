@@ -17,8 +17,11 @@ For the examply of an MNIST or fasion MNIST:
   predictions = Dense(10, activation='softmax')(x)
 ```
 3. Define the model object and put it all in there
-For the examply of an MNIST or fasion MNIST
+For the example of an MNIST or fashion MNIST
 ```py
   from tensorflow.keras.layers import Model
   func_model = Model(inputs=input, outputs=predictions)
 ```
+## Branching models
+The functional API allows us to define models with multiple branches - so not just one sequence. The 'Concatenate' function can then be used to recombine layers or alternatively the 'Model' function can be passed a list of inputs and can produce a list of outputs.
+One example of a branching model is the 'Inception' model.
