@@ -54,6 +54,9 @@ if __name__ == '__main__':
 
     # Use pandas excel reader
     df = pd.read_excel(URI)
+    # Remove unnamed comlumns
+    df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+
     # Sample 1% of the data and use the default index
     df = df.sample(frac=1).reset_index(drop=True)
 
