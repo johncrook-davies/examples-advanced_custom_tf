@@ -25,3 +25,8 @@ For the example of an MNIST or fashion MNIST
 ## Branching models
 The functional API allows us to define models with multiple branches - so not just one sequence. The 'Concatenate' function can then be used to recombine layers or alternatively the 'Model' function can be passed a list of inputs and can produce a list of outputs.
 One example of a branching model is the 'Inception' model.
+
+## Siamese networks
+This architecture takes two different inputs and uses the same architecture to process the different inputs. The output from each side of the network is a vector representing the image. The Euclidean distance is then measured between the outputs and is an indicator of similarity between the images. The model is trained using pairs of inputs with a label specifying whether the inputs are similar or not. This architecture is used in a number of different areas of research.
+
+Euclidean distance is the distance between the two vectors, in 3D space this is simply the calculated distance between two points in space. Generally it is the square root of the sum of squares.
