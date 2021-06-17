@@ -15,3 +15,5 @@ b. branching.py - example of a deep neural network DNN that branches producing o
 c. siamese.py - example of a siamese model that takes two inputs, processes them using the same DNN and then compares the resulting vectors
 2. Custom loss functions - custom-loss-functions
 a. huber.py - an example of implementation of a custom loss function of the Huber loss
+3. Custom layers - custom-layers
+a. lambda.py - example implementations of a lambda layer, using python lambda syntax and a predefined formula
