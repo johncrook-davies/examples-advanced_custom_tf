@@ -13,3 +13,5 @@ If using tensorflow for the first time then set up using the instructions here `
 a. functional-api.py - example of the functional api versus the standard tensorflow api
 b. branching.py - example of a deep neural network DNN that branches producing outputs in one branch and carrying out additional processing in another branch
 c. siamese.py - example of a siamese model that takes two inputs, processes them using the same DNN and then compares the resulting vectors
+2. Custom loss functions - custom-loss-functions
+a. huber.py - an example of implementation of a custom loss function of the Huber loss
