@@ -4,29 +4,45 @@ from tensorflow.keras.layers import Layer
 
 class SimpleDense(Layer):
 
-    def __init__(self, units=32):
+    def __init__(self, units=32, activation=None): # When None, a linear activation function is used
+    #Use this version if no activation funtion is needed
+    #def __init__(self, units=32):
         '''Initializes the instance attributes'''
         super(SimpleDense, self).__init__()
         self.units = units
+        # Comment following line out if no activation function is needed
+        self.activation = tf.keras.activations.get(activation)
 
     def build(self, input_shape):
         '''Create the state of the layer (weights)'''
         # initialize the weights
         w_init = tf.random_normal_initializer()
-        self.w = tf.Variable(name="kernel",
-            initial_value=w_init(shape=(input_shape[-1], self.units),
-                                 dtype='float32'),
-            trainable=True)
+        self.w = tf.Variable(
+            name="kernel",
+            initial_value=w_init(
+                shape=(input_shape[-1],
+                self.units),
+                dtype='float32'
+            ),
+            trainable=True
+        )
 
         # initialize the biases
         b_init = tf.zeros_initializer()
-        self.b = tf.Variable(name="bias",
-            initial_value=b_init(shape=(self.units,), dtype='float32'),
-            trainable=True)
+        self.b = tf.Variable(
+            name="bias",
+            initial_value=b_init(
+                shape=(self.units,),
+                dtype='float32'
+            ),
+            trainable=True
+        )
 
     def call(self, inputs):
         '''Defines the computation from inputs to outputs'''
-        return tf.matmul(inputs, self.w) + self.b
+        # Use this version if no activation function is needed
+        #return tf.matmul(inputs, self.w) + self.b
+        return self.activation(tf.matmul(inputs,self.w) + self.b)
 
 if __name__ == '__main__':
     # Dummy absolute basic inputs and labels with a y = 2x + 1 relationship
@@ -34,7 +50,7 @@ if __name__ == '__main__':
     ys = np.array([-3.0, -1.0, 1.0, 3.0, 5.0, 7.0], dtype=float)
 
     # use the Sequential API to build a model with our custom layer
-    my_layer = SimpleDense(units=1)
+    my_layer = SimpleDense(units=1, activation='relu')
     model = tf.keras.Sequential([my_layer])
 
     # configure and train the model
