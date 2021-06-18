@@ -18,4 +18,8 @@ For more advanced layer that are 'trainable', full custom layers must be created
   ```py
     tf.Variable(name='foo', initial_value=self.foo(shape=(x, self.units), trainable=True)
   ```
-  - `call` - performs computation and is called during training to get the output
+  - `call` - performs computation and is called during training to get the output, for a `mx +b` type layer, the call function is essentially just this calculation.
+Note after training, you can can inspect the variables that have been trained by calling:
+```py
+  CustomLayer.variables
+```
