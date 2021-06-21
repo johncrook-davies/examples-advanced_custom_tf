@@ -1,5 +1,5 @@
 # Custom models
-An example of where custom models might be useful is a 'deep and wide' network. A deep and wide model is where one one input layer is fed through a DNN and the other input is fed into the model further down the network and so essentially has a shallower DNN.
+An example of where custom models might be useful is a 'deep and wide' network. A deep and wide model is where one one input layer is fed through a DNN and the other input is fed into the model further down the network.
 
 The functional api can handle this architecture, it can also be ecapsulted in a custom model class. Using the class api has advantages:
 * it keeps logic a bit cleaner
