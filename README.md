@@ -17,3 +17,7 @@ c. siamese.py - example of a siamese model that takes two inputs, processes them
 a. huber.py - an example of implementation of a custom loss function of the Huber loss
 3. Custom layers - custom-layers
 a. lambda.py - example implementations of a lambda layer, using python lambda syntax and a predefined formula
+b. custom-layers.py - example implementation of a fully custom layer
+4. Custom models - custom-models
+a. wideanddeep.py - example implementations of a wide and deep model using both the functional api and a subclassed approach
+b. resnet.py - example implementation of a resnet using subclassed approach that defined a custom block and reuses it
